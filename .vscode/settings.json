@@ -1,0 +1,13 @@
+{
+  "files.exclude": {
+    "**/*.ionide": true,
+    "**/*bin": true,
+    "**/*obj": true,
+    ".vs": true,
+    "**/*node_modules/": true,
+    "**/*dist/": true,
+    "**/*.lock": true,
+    "**/*.csproj.user": true,
+    "**/package-lock.json": true,
+  }
+}
