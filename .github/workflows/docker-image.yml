@@ -45,7 +45,7 @@ jobs:
         with:
           # NOTE: at now only orgs is supported
           owner: askpt
-          name: musical-dollop/hackaweather
+          name: ${{ env.IMAGE_NAME }}
           # NOTE: using Personal Access Token
           token: ${{ secrets.GH_TOKEN }}
           tag: pr-${{github.event.pull_request.number}}
