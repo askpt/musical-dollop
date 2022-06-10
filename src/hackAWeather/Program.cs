@@ -20,7 +20,7 @@ var summaries =
     new[] { "Freezing", "Bracing", "Chilly", "Cool",       "Mild",
             "Warm",     "Balmy",   "Hot",    "Sweltering", "Scorching" };
 
-app.MapGet("/weatherforecast", () => {
+app.MapGet("/weatherforecast", async () => {
      var forecast =
          Enumerable.Range(1, 5)
              .Select(index => new WeatherForecast(
@@ -28,7 +28,7 @@ app.MapGet("/weatherforecast", () => {
                          Random.Shared.Next(-20, 55),
                          summaries[Random.Shared.Next(summaries.Length)]))
              .ToArray();
-     //await Task.Delay(2);
+     await Task.Delay(250);
      return forecast;
    }).WithName("GetWeatherForecast");
 
