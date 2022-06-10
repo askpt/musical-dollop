@@ -24,7 +24,7 @@ services:
       - "8125:8125/udp"
 
   hackaweather:
-    image: ghcr.io/askpt/musical-dollop/hackaweather:pr-4
-#    ports:
-#      - "5000:5000"
+    image: ghcr.io/askpt/musical-dollop/hackaweather:main
+    ports:
+      - "80:80"
 #      - "5001:5001"
