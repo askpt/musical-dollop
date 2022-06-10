@@ -9,6 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}/hackaweather
+  DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
 jobs:
 
@@ -39,3 +40,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+    
+    - name: Performance test
+      run:  docker-compose run -e DATADOG_API_KEY=${{ secrets.DATADOG_API_KEY }}  -T --rm load-test run --out statsd - <loadSpikeSoakScript.js
+      
+    - name: Teardown
+      run: docker-compose down
