@@ -3,12 +3,13 @@ services:
     image: grafana/k6:latest
     depends_on:
       - datadog-agent
+      - hackaweather
     environment:
       - K6_STATSD_ENABLE_TAGS=true
       - K6_STATSD_ADDR=datadog-agent:8125
     volumes:
       - ./loadSpikeSoakScript.js:/loadSpikeSoakScript.js
-    
+
   datadog-agent:
     image: datadog/agent:latest
     volumes:
@@ -20,4 +21,10 @@ services:
       - DD_API_KEY=xxx
       - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=1
     ports:
-      - "8125:8125/udp"     
+      - "8125:8125/udp"
+
+  hackaweather:
+    image: ghcr.io/askpt/musical-dollop/hackaweather:pr-4
+#    ports:
+#      - "5000:5000"
+#      - "5001:5001"
