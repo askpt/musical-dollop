@@ -10,6 +10,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}/hackaweather
   DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
+  TAG: pr-${{github.event.pull_request.number}}
 
 jobs:
 
