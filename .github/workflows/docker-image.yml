@@ -43,6 +43,3 @@ jobs:
     
     - name: Performance test
       run:  docker-compose run -e DATADOG_API_KEY=${{ secrets.DATADOG_API_KEY }}  -T --rm load-test run --out statsd - <loadSpikeSoakScript.js
-      
-    - name: Teardown
-      run: docker-compose down
