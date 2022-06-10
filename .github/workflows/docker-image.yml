@@ -9,6 +9,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}/hackaweather
+  DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
 jobs:
 
