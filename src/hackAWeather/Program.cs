@@ -28,7 +28,7 @@ app.MapGet("/weatherforecast", async () => {
                          Random.Shared.Next(-20, 55),
                          summaries[Random.Shared.Next(summaries.Length)]))
              .ToArray();
-     await Task.Delay(5000); return forecast;
+     await Task.Delay(10000); return forecast;
    }).WithName("GetWeatherForecast");
 
 app.Run();
