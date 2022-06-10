@@ -37,4 +37,5 @@ jobs:
       with:
           context: ./src/hackAWeather
           push: true
-          tags: hackaweather:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
