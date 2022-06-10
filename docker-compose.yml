@@ -18,13 +18,8 @@ services:
       - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
     environment:
       - DD_SITE=datadoghq.com
-      - DD_API_KEY=$DATADOG_API_KEY
+      - DD_API_KEY=${DATADOG_API_KEY}
       - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=1
-    ports:
-      - "8125:8125/udp"
 
   hackaweather:
     image: ghcr.io/askpt/musical-dollop/hackaweather:${TAG}
-    ports:
-      - "80:80"
-#      - "5001:5001"
